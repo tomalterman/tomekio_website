@@ -43,6 +43,12 @@ function main() {
     }
   }
 
+  // Recursively copy src/images/ → dist/images/ if it exists.
+  const imagesSrc = path.join(SRC_DIR, "images");
+  if (fs.existsSync(imagesSrc)) {
+    fs.cpSync(imagesSrc, path.join(DIST_DIR, "images"), { recursive: true });
+  }
+
   console.log(`✓ Built dist/index.html (${output.length} bytes)`);
 }
 
