@@ -33,9 +33,14 @@ function main() {
   fs.mkdirSync(DIST_DIR, { recursive: true });
   fs.writeFileSync(path.join(DIST_DIR, "index.html"), output);
 
-  const cnameSrc = path.join(SRC_DIR, "CNAME");
-  if (fs.existsSync(cnameSrc)) {
-    fs.copyFileSync(cnameSrc, path.join(DIST_DIR, "CNAME"));
+  // Copy root-level static files (CNAME, robots.txt, sitemap.xml, favicon.*, etc.)
+  // — anything sitting directly in src/ that isn't an HTML/CSS source.
+  const STATIC_FILES = ["CNAME", "robots.txt", "sitemap.xml"];
+  for (const name of STATIC_FILES) {
+    const from = path.join(SRC_DIR, name);
+    if (fs.existsSync(from)) {
+      fs.copyFileSync(from, path.join(DIST_DIR, name));
+    }
   }
 
   console.log(`✓ Built dist/index.html (${output.length} bytes)`);
