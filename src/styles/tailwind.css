@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Doc page typography. Used by long-form pages like /privacy/ and
+     /legal/ so heading sizes, margins, and colors stay in sync across
+     all doc pages from a single source of truth. */
+  .doc-eyebrow {
+    @apply font-label text-xs tracking-widest text-primary uppercase;
+  }
+  .doc-h1 {
+    @apply font-headline text-5xl md:text-6xl font-bold tracking-tighter text-on-surface mb-6 leading-none;
+  }
+  .doc-h2 {
+    @apply font-headline text-2xl font-bold mt-12 mb-4 text-on-surface;
+  }
+  .doc-h3 {
+    @apply font-headline text-lg font-bold mt-6 mb-2 text-primary;
+  }
+  .doc-list {
+    @apply list-disc pl-6 space-y-2;
+  }
+  .doc-link {
+    @apply text-primary underline hover:text-primary-fixed;
+  }
+  .doc-strong {
+    @apply text-on-surface;
+  }
+}
+
 @layer base {
   body {
     background-color: #00132e;
