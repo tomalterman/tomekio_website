@@ -8,7 +8,7 @@ const path = require("path");
 
 const SRC_DIR = path.join(__dirname, "src");
 const DIST_DIR = path.join(__dirname, "dist");
-const INCLUDE_RE = /<!--\s*@include\s+([^\s]+)\s*-->/g;
+const INCLUDE_RE = /<!--\s*@include\s+(\S+?)\s*-->/g;
 
 function resolveIncludes(filePath, stack = []) {
   if (stack.includes(filePath)) {
