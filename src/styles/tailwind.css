@@ -31,4 +31,14 @@
       transparent 8px
     );
   }
+
+  .technical-line-vertical {
+    background: repeating-linear-gradient(
+      0deg,
+      #3d4850 0,
+      #3d4850 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  }
 }
